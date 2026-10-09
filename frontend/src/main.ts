@@ -73,10 +73,12 @@ function notice(message: string, error = false) {
   $("notice").textContent = message;
   $("notice").hidden = !message;
   $("notice").classList.toggle("error", error);
+  if (message) $("notice").scrollIntoView({ block: "nearest" });
 }
 async function task(operation: () => Promise<void>) {
   if (busy) return;
   busy = true;
+  root.inert = true;
   root.classList.add("busy");
   $("status").textContent = "Working locally…";
   try {
@@ -85,6 +87,7 @@ async function task(operation: () => Promise<void>) {
     notice(String(e instanceof Error ? e.message : e), true);
   } finally {
     busy = false;
+    root.inert = false;
     root.classList.remove("busy");
     $("status").textContent = "Ready";
   }
