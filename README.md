@@ -4,9 +4,9 @@
 
 An offline Windows utility from ALMARFELD for CSV, TSV and delimited TXT files. Find structural problems and spreadsheet-import risks before opening data in Excel or another application.
 
-**Status: functional v1.0.0 candidate. No public release has been published.**
+**CSV Doctor v1.0.0**
 
-![Real CSV Doctor candidate: explicit repair choices and reviewed changes on synthetic data](docs/review.jpg)
+![Real CSV Doctor: explicit repair choices and reviewed changes on synthetic data](docs/review.jpg)
 
 ## What it does
 
@@ -38,13 +38,13 @@ Formula-risk detection covers `=`, `+`, `-`, `@`, leading whitespace/control cha
 
 References: [Microsoft: UTF-8 CSV import](https://support.microsoft.com/en-us/excel/opening-csv-utf-8-files-correctly-in-excel), [OWASP: CSV injection](https://community.owasp.org/attacks/CSV_Injection).
 
-## Run the candidate
+## Run CSV Doctor
 
 Windows 10/11 x64. Extract the entire portable ZIP into a folder and run **CSVDoctor.exe**. The separate **Microsoft Edge WebView2 Runtime** is required: [official Microsoft download](https://developer.microsoft.com/microsoft-edge/webview2/). Nothing installs automatically. The binaries are not Authenticode signed; Windows may show a reputation warning. Do not disable Windows security.
 
 Open one `.csv`, `.tsv` or `.txt`, or drop it onto the window. Diagnose the source, choose only the needed changes, review the comparison, then export a new copy and report. The first record is treated as a header by default; turn that option off and diagnose again for headerless data.
 
-## Candidate limits
+## Limits
 
 - 16 MiB input; 100,000 records; 256 fields per record; 1,000,000 cells total. Limits block export rather than truncate the saved data.
 - Preview: first 100 records, first 2,000 bytes per cell, first 200 finding locations. Export uses the full parsed data. Detection compares up to the first 200 nonblank records.

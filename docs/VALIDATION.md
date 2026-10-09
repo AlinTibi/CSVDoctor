@@ -1,4 +1,4 @@
-# Candidate validation
+# Validation
 
 Validated on Windows x64 with Node 22.23.3, Go 1.27.0 and Wails 2.16.0.
 
@@ -14,4 +14,4 @@ Automated tests additionally cover all four delimiters, UTF-8/BOM/UTF-16/Windows
 
 Not yet independently verified: drag-and-drop using Explorer, behavior on a machine without WebView2, taskbar/Alt+Tab icon inspection and a fully network-isolated environment. No host dependencies or network/security settings were removed or changed to simulate those conditions.
 
-This is a functional candidate, not a published release. Binaries are not Authenticode signed. No website product page or WinGet package is created.
+Binaries are not Authenticode signed. No website product page or WinGet package is created.

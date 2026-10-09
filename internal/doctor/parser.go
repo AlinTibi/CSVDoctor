@@ -41,7 +41,7 @@ func Parse(text, delim, mode string) ([]Row, error) {
 		rows = append(rows, Row{Cells: cells, Line: start, Blank: recordStart == end})
 		cells = nil
 		if len(rows) > MaxRows {
-			return fmt.Errorf("This candidate supports at most 100,000 records")
+			return fmt.Errorf("CSV Doctor supports at most 100,000 records")
 		}
 		return nil
 	}
