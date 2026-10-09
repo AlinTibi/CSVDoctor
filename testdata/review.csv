@@ -1,0 +1,7 @@
+Customer ID,Customer ID,,Amount,Note
+0000123,123456789012345678901,EUR,125.00,"Standard order"
+0000124,987654321098765432109,EUR,=SUM(1+2),"Check before spreadsheet import"
+0000125,112233445566778899001,EUR,89.50,"Multi-line note:
+Fragile — handle with care"
+0000126,998877665544332211009,EUR
+

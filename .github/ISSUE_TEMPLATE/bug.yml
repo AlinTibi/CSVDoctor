@@ -1,0 +1,17 @@
+name: Bug report
+description: Report a reproducible problem using synthetic data
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include app version, Windows version and the expected behavior. Do not share private paths or customer data.
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Synthetic reproduction
+      description: Provide a small invented CSV example and the source/export settings used.
+    validations:
+      required: true

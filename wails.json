@@ -1,0 +1,11 @@
+{
+ "$schema":"https://wails.io/schemas/config.v2.json",
+ "name":"CSVDoctor",
+ "outputfilename":"CSVDoctor",
+ "frontend:install":"npm ci",
+ "frontend:build":"npm run build",
+ "frontend:dev:watcher":"npm run dev",
+ "frontend:dev:serverUrl":"auto",
+ "author":{"name":"AlinTibi","email":"contact@almarfeld.com"},
+ "info":{"productName":"CSV Doctor","productVersion":"1.0.0","companyName":"ALMARFELD","copyright":"Copyright (c) 2026 AlinTibi","comments":"Offline delimited text diagnosis and conservative repair"}
+}
