@@ -12,6 +12,14 @@ Validated on Windows x64 with Node 22.23.3, Go 1.27.0 and Wails 2.16.0.
 
 Automated tests additionally cover all four delimiters, UTF-8/BOM/UTF-16/Windows-1252, invalid encodings, malformed quotes, Unicode, multiline cells, uneven rows, formula protection, header collisions, output overwrite refusal and stale review tokens. Reports and reopened copies agree on blank-record counts.
 
-Not yet independently verified: drag-and-drop using Explorer, behavior on a machine without WebView2, taskbar/Alt+Tab icon inspection and a fully network-isolated environment. No host dependencies or network/security settings were removed or changed to simulate those conditions.
+Completed manual validation:
+
+- Explorer drag/drop: PASS. CSV, TSV and TXT opened successfully; an unsupported BIN file was rejected clearly. Replacing the loaded file left no stale data or application freeze. These Explorer-to-application checks were performed and confirmed by the tester.
+- Missing WebView2 in Windows Sandbox: PASS. With WebView2 registration unavailable to the runtime loader, the packaged executable showed a controlled message identifying Microsoft Edge WebView2 Runtime and its official Microsoft download page, then exited cleanly. Nothing was downloaded or installed automatically. The host runtime was not removed or changed; this tested runtime unavailability rather than a physical uninstall.
+- Clean extraction / spaced path / non-project working directory: PASS. RC.6 launched from a freshly extracted folder containing spaces with a working directory outside the project.
+- GUI smoke test: PASS. Opened a synthetic CSV, loaded diagnostics, reviewed opt-in header/padding changes, exported a repaired copy and JSON report, then reopened the copy successfully.
+- Original input byte-for-byte preservation: PASS. The input SHA-256 was unchanged after export; independent comparison confirmed original data cell text was preserved, including leading zeros, long numeric identifiers, formula text and multiline content.
+
+Not yet independently verified: taskbar/Alt+Tab icon inspection and a fully network-isolated environment. No host network/security settings were changed to simulate those conditions.
 
 Binaries are not Authenticode signed. No website product page or WinGet package is created.
