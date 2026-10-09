@@ -6,6 +6,8 @@ An offline Windows utility from ALMARFELD for CSV, TSV and delimited TXT files. 
 
 **CSV Doctor v1.0.0**
 
+[Download the portable ZIP](https://github.com/AlinTibi/CSVDoctor/releases/download/v1.0.0/CSVDoctor-v1.0.0-win-x64.zip) · [Release notes and checksums](https://github.com/AlinTibi/CSVDoctor/releases/tag/v1.0.0) · [Product page](https://almarfeld.com/software/csv-doctor/)
+
 ![Real CSV Doctor: explicit repair choices and reviewed changes on synthetic data](docs/review.jpg)
 
 ## What it does
