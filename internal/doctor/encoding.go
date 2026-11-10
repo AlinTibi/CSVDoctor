@@ -12,7 +12,7 @@ import (
 
 func Decode(data []byte, choice string) (string, string, bool, error) {
 	if len(data) > MaxBytes {
-		return "", "", false, fmt.Errorf("This candidate supports files up to 16 MiB. No file was changed")
+		return "", "", false, fmt.Errorf("CSV Doctor supports files up to 16 MiB. No file was changed")
 	}
 	if bytes.HasPrefix(data, []byte{0xff, 0xfe, 0, 0}) || bytes.HasPrefix(data, []byte{0, 0, 0xfe, 0xff}) {
 		return "", "", false, fmt.Errorf("UTF-32 is not supported; convert it explicitly in another tool")

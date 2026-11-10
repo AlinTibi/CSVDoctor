@@ -1,6 +1,4 @@
-# v1.0.0 candidate
-
-Not a published release.
+# v1.0.0
 
 - Offline diagnosis and previews for CSV, TSV and delimited TXT.
 - Conservative delimiter/encoding detection with explicit ambiguity handling.

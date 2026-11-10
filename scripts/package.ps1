@@ -2,11 +2,16 @@ param([string]$Version = '1.0.0-rc.1')
 $ErrorActionPreference = 'Stop'
 if ($Version -notmatch '^\d+\.\d+\.\d+-rc\.\d+$') { throw 'Use a candidate version such as 1.0.0-rc.1' }
 $ProjectRoot = Split-Path $PSScriptRoot -Parent
+$Executable = Join-Path $ProjectRoot 'build/bin/CSVDoctor.exe'
+$Product = (Get-Item -LiteralPath $Executable).VersionInfo
+if ($Product.ProductName -ne 'CSV Doctor' -or $Product.CompanyName -ne 'ALMARFELD' -or $Product.ProductVersion -ne $Version.Split('-')[0]) { throw 'Executable product metadata does not match the candidate' }
 $ArtifactRoot = Join-Path $ProjectRoot 'artifacts'
 New-Item -ItemType Directory -Path $ArtifactRoot -Force | Out-Null
 $Stage = Join-Path ([IO.Path]::GetTempPath()) ('csvdoctor-package-' + [guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $Stage | Out-Null
-Copy-Item -LiteralPath (Join-Path $ProjectRoot 'build/bin/CSVDoctor.exe') -Destination $Stage
+Copy-Item -LiteralPath $Executable -Destination $Stage
+New-Item -ItemType Directory -Path (Join-Path $Stage 'docs') | Out-Null
+Copy-Item -LiteralPath (Join-Path $ProjectRoot 'docs/review.jpg') -Destination (Join-Path $Stage 'docs/review.jpg')
 foreach ($Name in @('LICENSE','README.md','RELEASE_NOTES.md','SECURITY.md')) { Copy-Item -LiteralPath (Join-Path $ProjectRoot $Name) -Destination $Stage }
 $Notices = [Collections.Generic.List[string]]::new()
 $Notices.Add('Third-party license texts for dependencies linked into CSV Doctor.')

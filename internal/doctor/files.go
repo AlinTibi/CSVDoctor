@@ -28,14 +28,14 @@ func ReadFile(path string) ([]byte, error) {
 		return nil, fmt.Errorf("Choose a regular text file")
 	}
 	if st.Size() > MaxBytes {
-		return nil, fmt.Errorf("The selected file exceeds the 16 MiB candidate limit")
+		return nil, fmt.Errorf("The selected file exceeds the 16 MiB limit")
 	}
 	data, err := io.ReadAll(io.LimitReader(f, MaxBytes+1))
 	if err != nil {
 		return nil, err
 	}
 	if len(data) > MaxBytes {
-		return nil, fmt.Errorf("The selected file exceeds the 16 MiB candidate limit")
+		return nil, fmt.Errorf("The selected file exceeds the 16 MiB limit")
 	}
 	return data, nil
 }
